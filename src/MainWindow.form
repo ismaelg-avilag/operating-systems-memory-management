@@ -141,7 +141,7 @@
               <component id="8a61c" class="javax.swing.JTable" binding="tableOutput">
                 <constraints/>
                 <properties>
-                  <background color="-724514"/>
+                  <background color="-1"/>
                   <font name="Roboto" size="14" style="0"/>
                   <foreground color="-16777216"/>
                 </properties>
@@ -176,7 +176,7 @@
               <component id="52e1b" class="javax.swing.JTable" binding="tableFiles">
                 <constraints/>
                 <properties>
-                  <background color="-724514"/>
+                  <background color="-1"/>
                   <font name="Roboto" size="14" style="0"/>
                   <foreground color="-16777216"/>
                 </properties>
@@ -211,7 +211,7 @@
               <component id="2012a" class="javax.swing.JTable" binding="tableMemoryPartitioning">
                 <constraints/>
                 <properties>
-                  <background color="-724514"/>
+                  <background color="-1"/>
                   <font name="Roboto" size="14" style="0"/>
                   <foreground color="-16777216"/>
                 </properties>
