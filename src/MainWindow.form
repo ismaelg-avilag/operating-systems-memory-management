@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="MainWindow">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="5" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="900" height="600"/>
+    </constraints>
+    <properties>
+      <background color="-724514"/>
+      <font name="Roboto" size="0" style="0"/>
+      <foreground color="-16777216"/>
+      <maximumSize width="1100" height="700"/>
+      <minimumSize width="900" height="600"/>
+      <preferredSize width="900" height="600"/>
+    </properties>
+    <border type="none"/>
+    <children>
+      <grid id="dbf5c" binding="panelLoadFiles" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-724514"/>
+          <font name="Roboto" size="0" style="0"/>
+          <foreground color="-16777216"/>
+        </properties>
+        <border type="none" title="Agregar archivos"/>
+        <children>
+          <component id="329ed" class="javax.swing.JButton" binding="buttonLoadFiles">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-865137"/>
+              <enabled value="true"/>
+              <font name="Roboto" size="16" style="0"/>
+              <foreground color="-16777216"/>
+              <text value="Cargar desde archivo"/>
+            </properties>
+          </component>
+        </children>
+      </grid>
+      <grid id="56aae" binding="panelMemoryManager" layout-manager="GridLayoutManager" row-count="5" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="1" column="1" row-span="4" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-724514"/>
+          <enabled value="true"/>
+          <font name="Roboto" size="16" style="0"/>
+          <foreground color="-16777216"/>
+        </properties>
+        <border type="none" title="Administración de memoria"/>
+        <children>
+          <component id="3d57d" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <enabled value="true"/>
+              <font name="Roboto" size="16" style="0"/>
+              <foreground color="-16777216"/>
+              <text value="Selecciona el algoritmo a utilizar"/>
+            </properties>
+          </component>
+          <component id="73342" class="javax.swing.JRadioButton" binding="radioButtonFirstFit">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <enabled value="true"/>
+              <font name="Roboto" size="16" style="0"/>
+              <foreground color="-16777216"/>
+              <selected value="true"/>
+              <text value="Primer ajuste"/>
+            </properties>
+          </component>
+          <component id="8c6b" class="javax.swing.JRadioButton" binding="radioButtonBestFit">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <enabled value="true"/>
+              <font name="Roboto" size="16" style="0"/>
+              <foreground color="-16777216"/>
+              <text value="Mejor ajuste"/>
+            </properties>
+          </component>
+          <component id="c5dc5" class="javax.swing.JRadioButton" binding="radioButtonWorstFit">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <enabled value="true"/>
+              <font name="Roboto" size="16" style="0"/>
+              <foreground color="-16777216"/>
+              <text value="Peor ajuste"/>
+            </properties>
+          </component>
+          <component id="2aed4" class="javax.swing.JButton" binding="buttonRunAlgorithm">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-8277350"/>
+              <enabled value="true"/>
+              <font name="Roboto" size="16" style="0"/>
+              <foreground color="-16777216"/>
+              <text value="Ejecutar algoritmo"/>
+            </properties>
+          </component>
+          <component id="3a6af" class="javax.swing.JRadioButton" binding="radioButtonNextFit">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <enabled value="true"/>
+              <font name="Roboto" size="16" style="0"/>
+              <foreground color="-16777216"/>
+              <text value="Siguiente ajuste"/>
+            </properties>
+          </component>
+          <scrollpane id="bf846">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <font name="Roboto" size="0" style="0"/>
+              <foreground color="-16777216"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="8a61c" class="javax.swing.JTable" binding="tableOutput">
+                <constraints/>
+                <properties>
+                  <background color="-724514"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-16777216"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+      <grid id="aed44" binding="panelFilesEntered" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-724514"/>
+          <font name="Roboto" size="0" style="0"/>
+          <foreground color="-16777216"/>
+        </properties>
+        <border type="none" title="Archivos ingresados"/>
+        <children>
+          <scrollpane id="4416d">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <font name="Roboto" size="0" style="0"/>
+              <foreground color="-16777216"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="52e1b" class="javax.swing.JTable" binding="tableFiles">
+                <constraints/>
+                <properties>
+                  <background color="-724514"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-16777216"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+      <grid id="6c34f" binding="panelMemoryPartitioning" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
+        <constraints>
+          <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-724514"/>
+          <font name="Roboto" size="0" style="0"/>
+          <foreground color="-16777216"/>
+        </properties>
+        <border type="none" title="Particiones de memoria"/>
+        <children>
+          <scrollpane id="6035d">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-724514"/>
+              <font name="Roboto" size="0" style="0"/>
+              <foreground color="-16777216"/>
+            </properties>
+            <border type="none"/>
+            <children>
+              <component id="2012a" class="javax.swing.JTable" binding="tableMemoryPartitioning">
+                <constraints/>
+                <properties>
+                  <background color="-724514"/>
+                  <font name="Roboto" size="14" style="0"/>
+                  <foreground color="-16777216"/>
+                </properties>
+              </component>
+            </children>
+          </scrollpane>
+        </children>
+      </grid>
+      <component id="a7bce" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="0" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <background color="-724514"/>
+          <font name="Roboto" size="26" style="0"/>
+          <foreground color="-16777216"/>
+          <text value="Algoritmos de Planificación de Memoria"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
