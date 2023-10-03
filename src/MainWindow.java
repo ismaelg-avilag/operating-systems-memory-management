@@ -7,10 +7,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class MainWindow {
-    private JButton buttonLoadFiles;
     private JButton buttonRunAlgorithm;
     private JPanel mainPanel;
-    private JPanel panelLoadFiles;
     private JPanel panelFilesEntered;
     private JPanel panelMemoryPartitioning;
     private JPanel panelMemoryManager;
@@ -23,6 +21,7 @@ public class MainWindow {
     private JTable tableOutput;
 
     private ArrayList<MemoryPartition> memoryPartitions;
+    private ArrayList<File> files;
 
 
     public MainWindow()
@@ -34,10 +33,7 @@ public class MainWindow {
         group.add(radioButtonNextFit);
 
         loadMemoryPartitions();
-
-        buttonLoadFiles.addActionListener(e -> {
-
-        });
+        loadFiles();
 
         buttonRunAlgorithm.addActionListener(e -> {
 
@@ -54,6 +50,20 @@ public class MainWindow {
 
         for (MemoryPartition memoryPartition : memoryPartitions) {
             Object[] data = {memoryPartition.getSize() + " kb", memoryPartition.isFree()};
+            tableModel.addRow(data);
+        }
+    }
+
+    private void loadFiles()
+    {
+        files = readFiles("input-files/files.txt");
+
+        String[] columnNames = {"Nombre", "Tamaño"};
+        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+        tableFiles.setModel(tableModel);
+
+        for (File file : files) {
+            Object[] data = {file.getName(), file.getSize() + " kb"};
             tableModel.addRow(data);
         }
     }
@@ -78,6 +88,29 @@ public class MainWindow {
         }
 
         return memoryPartitions;
+    }
+
+    private ArrayList<File> readFiles(String path)
+    {
+        ArrayList<File> files = new ArrayList<>();
+
+        try {
+            BufferedReader reader = new BufferedReader(new FileReader(path));
+            String line = reader.readLine();
+
+            while(line != null) {
+                String[] data = line.split(",");
+
+                files.add(new File(data[0], Integer.parseInt(data[1])));
+                line = reader.readLine();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+        return files;
     }
 
     public static void main(String[] args) {
