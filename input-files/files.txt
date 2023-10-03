@@ -1,0 +1,5 @@
+hola_mundo.py,500
+lista_de_compras.txt,950
+resumen.docx,1200
+persona.h,350
+reporte.xlsx,2000
