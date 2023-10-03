@@ -36,6 +36,8 @@ public class MainWindow {
         loadFiles();
 
         buttonRunAlgorithm.addActionListener(e -> {
+            freeMemoryPartitions();
+
             if(radioButtonFirstFit.isSelected())
                 showResults(MemoryManagementAlgorithms.FirstFit(memoryPartitions, files));
 
@@ -88,6 +90,12 @@ public class MainWindow {
             String[] data = line.split(",");
             tableModel.addRow(data);
         }
+    }
+
+    private void freeMemoryPartitions()
+    {
+        for(MemoryPartition memoryPartition : memoryPartitions)
+            memoryPartition.setFree(true);
     }
 
 
