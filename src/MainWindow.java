@@ -58,7 +58,7 @@ public class MainWindow {
     {
         memoryPartitions = readMemoryPartitionsFile("input-files/memory-partitions.txt");
 
-        String[] columnNames = {"Partición", "Tamaño", "Libre"};
+        String[] columnNames = {"Partición", "Tamaño", "Disponible"};
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         tableMemoryPartitioning.setModel(tableModel);
 
@@ -102,7 +102,7 @@ public class MainWindow {
 
     private void updateMemoryPartitions()
     {
-        String[] columnNames = {"Partición", "Tamaño", "Libre"};
+        String[] columnNames = {"Partición", "Tamaño", "Disponible"};
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         tableMemoryPartitioning.setModel(tableModel);
 
@@ -110,6 +110,8 @@ public class MainWindow {
             Object[] data = {i, memoryPartitions.get(i).getSize() + " kb", memoryPartitions.get(i).isFree()};
             tableModel.addRow(data);
         }
+
+        tableMemoryPartitioning.getColumnModel().getColumn(2).setCellRenderer(new CustomRenderer());
     }
 
 
