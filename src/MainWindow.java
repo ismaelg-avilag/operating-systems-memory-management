@@ -36,7 +36,17 @@ public class MainWindow {
         loadFiles();
 
         buttonRunAlgorithm.addActionListener(e -> {
+            if(radioButtonFirstFit.isSelected())
+                showResults(MemoryManagementAlgorithms.FirstFit(memoryPartitions, files));
 
+            else if(radioButtonBestFit.isSelected())
+                showResults(MemoryManagementAlgorithms.BestFit(memoryPartitions, files));
+
+            else if(radioButtonWorstFit.isSelected())
+                showResults(MemoryManagementAlgorithms.WorstFit(memoryPartitions, files));
+
+            else if(radioButtonNextFit.isSelected())
+                showResults(MemoryManagementAlgorithms.NextFit(memoryPartitions, files));
         });
     }
 
@@ -64,6 +74,18 @@ public class MainWindow {
 
         for (File file : files) {
             Object[] data = {file.getName(), file.getSize() + " kb"};
+            tableModel.addRow(data);
+        }
+    }
+
+    private void showResults(ArrayList<String> output)
+    {
+        String[] columnNames = {"Partición", "Tamaño", "Archivo", "Tamaño"};
+        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+        tableOutput.setModel(tableModel);
+
+        for (String line : output) {
+            String[] data = line.split(",");
             tableModel.addRow(data);
         }
     }
