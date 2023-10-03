@@ -49,6 +49,8 @@ public class MainWindow {
 
             else if(radioButtonNextFit.isSelected())
                 showResults(MemoryManagementAlgorithms.NextFit(memoryPartitions, files));
+
+            updateMemoryPartitions();
         });
     }
 
@@ -56,12 +58,12 @@ public class MainWindow {
     {
         memoryPartitions = readMemoryPartitionsFile("input-files/memory-partitions.txt");
 
-        String[] columnNames = {"Tamaño", "Libre"};
+        String[] columnNames = {"Partición", "Tamaño", "Libre"};
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         tableMemoryPartitioning.setModel(tableModel);
 
-        for (MemoryPartition memoryPartition : memoryPartitions) {
-            Object[] data = {memoryPartition.getSize() + " kb", memoryPartition.isFree()};
+        for(int i=0; i<memoryPartitions.size(); i++) {
+            Object[] data = {i, memoryPartitions.get(i).getSize() + " kb", memoryPartitions.get(i).isFree()};
             tableModel.addRow(data);
         }
     }
@@ -96,6 +98,18 @@ public class MainWindow {
     {
         for(MemoryPartition memoryPartition : memoryPartitions)
             memoryPartition.setFree(true);
+    }
+
+    private void updateMemoryPartitions()
+    {
+        String[] columnNames = {"Partición", "Tamaño", "Libre"};
+        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+        tableMemoryPartitioning.setModel(tableModel);
+
+        for(int i=0; i<memoryPartitions.size(); i++) {
+            Object[] data = {i, memoryPartitions.get(i).getSize() + " kb", memoryPartitions.get(i).isFree()};
+            tableModel.addRow(data);
+        }
     }
 
 
