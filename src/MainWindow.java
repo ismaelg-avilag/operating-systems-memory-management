@@ -1,6 +1,5 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
@@ -8,6 +7,9 @@ import java.util.ArrayList;
 
 public class MainWindow {
     private JButton buttonRunAlgorithm;
+    private JButton buttonUploadPhysicalFiles;
+    private JButton buttonUploadVirtualFile;
+    private JButton buttonAddMemoryPartition;
     private JPanel mainPanel;
     private JPanel panelFilesEntered;
     private JPanel panelMemoryPartitioning;
@@ -16,9 +18,14 @@ public class MainWindow {
     private JRadioButton radioButtonBestFit;
     private JRadioButton radioButtonWorstFit;
     private JRadioButton radioButtonNextFit;
+    private JRadioButton radioButtonAddMemoryPartitionToBeginning;
+    private JRadioButton radioButtonAddMemoryPartitionAtTheEnd;
     private JTable tableFiles;
     private JTable tableMemoryPartitioning;
     private JTable tableOutput;
+    private JTextField textFieldFileName;
+    private JTextField textFieldFileSize;
+    private JTextField textFieldMemoryPartitionSize;
 
     private ArrayList<MemoryPartition> memoryPartitions;
     private ArrayList<File> files;
