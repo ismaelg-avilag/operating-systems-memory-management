@@ -1,6 +1,8 @@
 import javax.swing.*;
+import javax.swing.JFileChooser;
 import javax.swing.table.DefaultTableModel;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -28,7 +30,7 @@ public class MainWindow {
     private JTextField textFieldMemoryPartitionSize;
 
     private ArrayList<MemoryPartition> memoryPartitions;
-    private ArrayList<File> files;
+    private ArrayList<MyFile> files;
 
 
     public MainWindow()
@@ -47,11 +49,23 @@ public class MainWindow {
         uploadFiles();
 
         buttonUploadPhysicalFiles.addActionListener(e -> {
+            JFileChooser fileChooser = new JFileChooser();
+            fileChooser.setDialogTitle("Seleccionar una carpera para cargar sus archivos");
+            fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 
+            int selection = fileChooser.showOpenDialog(mainPanel);
+            File selectedDirectory =  fileChooser.getSelectedFile();
+
+            for(File file : selectedDirectory.listFiles()) {
+                if(file.isFile())
+                    files.add(new MyFile(file.getName(), (int) file.length()));
+            }
+
+            updateFilesTable();
         });
 
         buttonAddVirtualFile.addActionListener(e -> {
-            files.add(new File(textFieldFileName.getText(), Integer.parseInt(textFieldFileSize.getText())));
+            files.add(new MyFile(textFieldFileName.getText(), Integer.parseInt(textFieldFileSize.getText())));
             textFieldFileName.setText("");
             textFieldFileSize.setText("");
 
@@ -101,7 +115,7 @@ public class MainWindow {
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         tableFiles.setModel(tableModel);
 
-        for (File file : files) {
+        for (MyFile file : files) {
             Object[] data = {file.getName(), file.getSize() + " kb"};
             tableModel.addRow(data);
         }
@@ -145,7 +159,7 @@ public class MainWindow {
         DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
         tableFiles.setModel(tableModel);
 
-        for (File file : files) {
+        for (MyFile file : files) {
             Object[] data = {file.getName(), file.getSize() + " kb"};
             tableModel.addRow(data);
         }
@@ -173,9 +187,9 @@ public class MainWindow {
         return memoryPartitions;
     }
 
-    private ArrayList<File> readFiles(String path)
+    private ArrayList<MyFile> readFiles(String path)
     {
-        ArrayList<File> files = new ArrayList<>();
+        ArrayList<MyFile> files = new ArrayList<>();
 
         try {
             BufferedReader reader = new BufferedReader(new FileReader(path));
@@ -184,7 +198,7 @@ public class MainWindow {
             while(line != null) {
                 String[] data = line.split(",");
 
-                files.add(new File(data[0], Integer.parseInt(data[1])));
+                files.add(new MyFile(data[0], Integer.parseInt(data[1])));
                 line = reader.readLine();
             }
 

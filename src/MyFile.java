@@ -1,10 +1,10 @@
-public class File {
+public class MyFile {
     private String name;
     private int size;
 
-    public File() {}
+    public MyFile(String property) {}
 
-    public File(String name, int size) {
+    public MyFile(String name, int size) {
         this.name = name;
         this.size = size;
     }
