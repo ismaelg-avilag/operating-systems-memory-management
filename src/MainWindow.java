@@ -59,7 +59,12 @@ public class MainWindow {
         });
 
         buttonAddMemoryPartition.addActionListener(e -> {
+            if(radioButtonAddMemoryPartitionToBeginning.isSelected())
+                memoryPartitions.add(0, new MemoryPartition(Integer.parseInt(textFieldMemoryPartitionSize.getText()), true));
+            else
+                memoryPartitions.add(new MemoryPartition(Integer.parseInt(textFieldMemoryPartitionSize.getText()), true));
 
+            updateMemoryPartitions();
         });
 
         buttonRunAlgorithm.addActionListener(e -> {
@@ -85,14 +90,7 @@ public class MainWindow {
     {
         memoryPartitions = readMemoryPartitionsFile("input-files/memory-partitions.txt");
 
-        String[] columnNames = {"Partición", "Tamaño", "Disponible"};
-        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
-        tableMemoryPartitioning.setModel(tableModel);
-
-        for(int i=0; i<memoryPartitions.size(); i++) {
-            Object[] data = {i, memoryPartitions.get(i).getSize() + " kb", memoryPartitions.get(i).isFree()};
-            tableModel.addRow(data);
-        }
+        updateMemoryPartitions();
     }
 
     private void uploadFiles()
