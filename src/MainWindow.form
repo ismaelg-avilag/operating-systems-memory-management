@@ -225,7 +225,7 @@
                   <font name="Roboto" size="14" style="0"/>
                 </properties>
               </component>
-              <component id="34450" class="javax.swing.JButton" binding="buttonUploadVirtualFile">
+              <component id="34450" class="javax.swing.JButton" binding="buttonAddVirtualFile">
                 <constraints>
                   <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
                 </constraints>

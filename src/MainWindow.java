@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class MainWindow {
     private JButton buttonRunAlgorithm;
     private JButton buttonUploadPhysicalFiles;
-    private JButton buttonUploadVirtualFile;
+    private JButton buttonAddVirtualFile;
     private JButton buttonAddMemoryPartition;
     private JPanel mainPanel;
     private JPanel panelFilesEntered;
@@ -33,14 +33,30 @@ public class MainWindow {
 
     public MainWindow()
     {
-        ButtonGroup group = new ButtonGroup();
-        group.add(radioButtonFirstFit);
-        group.add(radioButtonBestFit);
-        group.add(radioButtonWorstFit);
-        group.add(radioButtonNextFit);
+        ButtonGroup algorithmSelectionGroup = new ButtonGroup();
+        algorithmSelectionGroup.add(radioButtonFirstFit);
+        algorithmSelectionGroup.add(radioButtonBestFit);
+        algorithmSelectionGroup.add(radioButtonWorstFit);
+        algorithmSelectionGroup.add(radioButtonNextFit);
+
+        ButtonGroup memoryPartitionsGroup = new ButtonGroup();
+        memoryPartitionsGroup.add(radioButtonAddMemoryPartitionToBeginning);
+        memoryPartitionsGroup.add(radioButtonAddMemoryPartitionAtTheEnd);
 
         loadMemoryPartitions();
         loadFiles();
+
+        buttonUploadPhysicalFiles.addActionListener(e -> {
+
+        });
+
+        buttonAddVirtualFile.addActionListener(e -> {
+
+        });
+
+        buttonAddMemoryPartition.addActionListener(e -> {
+            
+        });
 
         buttonRunAlgorithm.addActionListener(e -> {
             freeMemoryPartitions();
