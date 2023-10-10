@@ -2,11 +2,11 @@ import java.util.ArrayList;
 
 public class MemoryManagementAlgorithms {
 
-    public static ArrayList<String> FirstFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<File> files)
+    public static ArrayList<String> FirstFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<MyFile> files)
     {
         ArrayList<String> output = new ArrayList<>();
 
-        for(File file : files)
+        for(MyFile file : files)
             for(int i=0; i < memoryPartitions.size(); i++) {
                 MemoryPartition memoryPartition = memoryPartitions.get(i);
 
@@ -20,11 +20,11 @@ public class MemoryManagementAlgorithms {
         return output;
     }
 
-    public static ArrayList<String> BestFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<File> files)
+    public static ArrayList<String> BestFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<MyFile> files)
     {
         ArrayList<String> output = new ArrayList<>();
 
-        for(File file : files) {
+        for(MyFile file : files) {
             int bestFitIndex = -1;
 
             for(int i=0; i < memoryPartitions.size(); i++) {
@@ -47,11 +47,11 @@ public class MemoryManagementAlgorithms {
         return output;
     }
 
-    public static ArrayList<String> WorstFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<File> files)
+    public static ArrayList<String> WorstFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<MyFile> files)
     {
         ArrayList<String> output = new ArrayList<>();
 
-        for(File file : files) {
+        for(MyFile file : files) {
             int worstFitIndex = -1;
 
             for(int i=0; i < memoryPartitions.size(); i++) {
@@ -74,12 +74,12 @@ public class MemoryManagementAlgorithms {
         return output;
     }
 
-    public static ArrayList<String> NextFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<File> files)
+    public static ArrayList<String> NextFit(ArrayList<MemoryPartition> memoryPartitions, ArrayList<MyFile> files)
     {
         ArrayList<String> output = new ArrayList<>();
         int nextFitIndex = 0;
 
-        for(File file : files) {
+        for(MyFile file : files) {
 
             for(int i=nextFitIndex; i < memoryPartitions.size(); i++) {
                 MemoryPartition memoryPartition = memoryPartitions.get(i);
