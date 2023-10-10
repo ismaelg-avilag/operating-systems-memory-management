@@ -43,19 +43,23 @@ public class MainWindow {
         memoryPartitionsGroup.add(radioButtonAddMemoryPartitionToBeginning);
         memoryPartitionsGroup.add(radioButtonAddMemoryPartitionAtTheEnd);
 
-        loadMemoryPartitions();
-        loadFiles();
+        uploadMemoryPartitions();
+        uploadFiles();
 
         buttonUploadPhysicalFiles.addActionListener(e -> {
 
         });
 
         buttonAddVirtualFile.addActionListener(e -> {
+            files.add(new File(textFieldFileName.getText(), Integer.parseInt(textFieldFileSize.getText())));
+            textFieldFileName.setText("");
+            textFieldFileSize.setText("");
 
+            updateFilesTable();
         });
 
         buttonAddMemoryPartition.addActionListener(e -> {
-            
+
         });
 
         buttonRunAlgorithm.addActionListener(e -> {
@@ -77,7 +81,7 @@ public class MainWindow {
         });
     }
 
-    private void loadMemoryPartitions()
+    private void uploadMemoryPartitions()
     {
         memoryPartitions = readMemoryPartitionsFile("input-files/memory-partitions.txt");
 
@@ -91,7 +95,7 @@ public class MainWindow {
         }
     }
 
-    private void loadFiles()
+    private void uploadFiles()
     {
         files = readFiles("input-files/files.txt");
 
@@ -135,6 +139,18 @@ public class MainWindow {
         }
 
         tableMemoryPartitioning.getColumnModel().getColumn(2).setCellRenderer(new CustomRenderer());
+    }
+
+    private void updateFilesTable()
+    {
+        String[] columnNames = {"Nombre", "Tamaño"};
+        DefaultTableModel tableModel = new DefaultTableModel(columnNames, 0);
+        tableFiles.setModel(tableModel);
+
+        for (File file : files) {
+            Object[] data = {file.getName(), file.getSize() + " kb"};
+            tableModel.addRow(data);
+        }
     }
 
 
